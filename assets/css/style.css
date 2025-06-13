@@ -1,0 +1,473 @@
+@import url('https://unpkg.com/aos@2.3.1/dist/aos.css');
+
+/* General Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Times New Roman", Times, serif;
+    line-height: 1.7;
+    background-color: #0f0f0f; /* Fallback background */
+    color: #e0e0e0;
+    background-image: url('../images/space-bg.jpg'); /* Corrected path */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+main {
+    flex-grow: 1;
+    padding: 40px 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, serif;
+    color: #00d1ff;
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+    text-shadow: 0 0 5px #00d1ff66;
+}
+
+h1 { 
+    font-size: 5em; 
+    font-weight: bold; /* Times New Roman often looks better bold for main titles */
+    margin-bottom: 0; 
+}
+h2 {    
+    font-size: 3em; 
+    font-weight: bold;
+    border-bottom: 2px solid #00d1ff; 
+    padding-bottom: 10px; 
+    margin-top: 20px; /* Added margin-top for better spacing */
+    margin-bottom: 25px; /* Added margin-bottom */
+}
+h3 { font-size: 1.8em; font-weight: bold; margin-top: 25px; margin-bottom: 15px;} /* Added margin-top */
+
+p, li {
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #ccc;
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+a {
+    color: #80cfff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: #00d1ff;
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background: rgba(10, 25, 47, 0.85); /* Dark blueish, slightly more opaque */
+    color: #fff;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #00d1ff;
+    backdrop-filter: blur(8px); /* Enhanced blur for better readability over content */
+    transition: transform 0.15s ease-in-out;
+}
+header.header-hidden {
+    transform: translateY(-100%); /* Move header out of view */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* Needed for absolute positioning */
+}
+header nav {
+    padding-right: 10px; /* Adjust this value as needed */
+}
+
+.digital-datetime {
+    position: absolute;
+    top: 50%;
+    right: -100px; /* Decreased from 15px to move it further right */
+    transform: translateY(-50%);
+    color: #cce0ff; 
+    font-size: 0.9em; 
+    text-align: right;
+    line-height: 1.3;
+    background-color: rgba(10, 25, 47, 0.5); 
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.digital-datetime #digital-time {
+    display: block;
+    font-weight: 500;
+    color: #00d1ff; /* Brighter color for time */
+}
+
+.digital-datetime #digital-date {
+    display: block;
+    font-size: 0.85em; /* Slightly smaller for date */
+}
+
+header .logo h1 {
+    color: #00d1ff;
+    text-shadow: 0 0 5px #00d1ff88;
+}
+header .logo p.tagline { /* Targeting tagline specifically if needed */
+    margin: 5px 0 0;
+    font-size: 1em;
+    color: #9fceff;
+    font-weight: normal;
+}
+
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin-left: 25px;
+}
+
+header nav a {
+    color: #e0e0e0;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+header nav a:hover,
+header nav a.active {
+    color: #00d1ff;
+    text-shadow: 0 0 5px #00d1ff88;
+}
+
+/* Hero Section */
+section#hero {
+    background: rgba(0, 0, 0, 0.6); /* Slightly less transparent */
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px; /* Reduced padding a bit */
+    border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(5px); /* Adjusted blur */
+}
+
+section#hero[data-aos] {
+    transition: all 0.6s ease-in-out;
+}
+
+section#hero .profile-photo {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 4px solid #00d1ff;
+    object-fit: cover;
+    box-shadow: 0 0 15px #00d1ff, 0 0 25px #00d1ff66; /* Enhanced glow */
+    margin-bottom: 20px;
+}
+
+section#hero h2 { 
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    border-bottom: none; 
+    color: #fff; 
+    text-shadow: 0 0 8px #00d1ff;
+}
+
+section#hero p {
+    font-size: 1.3em;
+    color: #e0e0e0; /* Brighter paragraph text */
+    text-align: center;
+}
+
+.cta-buttons {
+    margin-top: 20px; /* Add some space above the buttons */
+    text-align: center; /* Center the inline-block buttons within this container */
+}
+/* Buttons */
+.btn, button[type="submit"] {
+    display: inline-block; 
+    padding: 12px 25px;
+    border-radius: 25px; 
+    margin: 5px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    border: none;
+    cursor: pointer;
+    font-family: "Times New Roman", Times, serif; /* Changed font */
+    font-weight: bold; /* Buttons often look better with bold text */
+    font-size: 1em; 
+    text-decoration: none; 
+    text-align: center;
+    background: #00d1ff; 
+    color: #0a192f; 
+    box-shadow: 0 0 8px #00d1ff66, 0 0 15px #00d1ff33;
+}
+
+.btn:hover, button[type="submit"]:hover {
+    background: #00b8e6; /* Slightly different hover */
+    color: #000;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 12px #00d1ff, 0 0 20px #00d1ff88;
+}
+
+.btn-secondary {
+    background: #2a3f5a; /* Darker, muted blue */
+    color: #cce0ff;
+    border: 1px solid #00d1ff55;
+    font-family: "Times New Roman", Times, serif;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.btn-secondary:hover {
+    background: #3c5a80;
+    color: #fff;
+    border-color: #00d1ff88;
+}
+.btn-wide {
+    padding: 14px 35px; /* Increased padding */
+    min-width: 220px;   /* Set a minimum width */
+    text-align: center; /* Ensure text is centered if width makes it too wide */
+    border-radius: 25px;
+}
+
+/* Sections */
+section {
+    background: rgba(10, 25, 47, 0.7); /* Dark blueish, semi-transparent */
+    margin: 40px 0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 209, 255, 0.1), inset 0 0 15px rgba(0, 209, 255, 0.05);
+    border: 1px solid #00d1ff1a; /* Subtle border */
+    text-align: center;
+}
+
+section[data-aos] {
+    transition: all 0.6s ease-in-out;
+}
+
+section p,
+section ul,
+section ol,
+section article {
+    text-align: left;
+}
+section ul li,
+section ol li {
+    text-align: left; /* This ensures text within li is left-aligned */
+}
+section article h3 {
+    text-align: left;
+}
+#about-overview p{
+    text-align: center; /* Centering the paragraph in the overview */
+}
+#skills-overview p {
+    text-align: center;
+}
+#skills-overview .skills-list-overview {
+    list-style: disc; 
+    padding-left: 0; 
+    margin: 15px auto; 
+    max-width: 400px; 
+    display: inline-block; 
+}
+
+#skills-overview .skills-list-overview li {
+    background: none; 
+    color: #ccc;    
+    padding: 5px 0; 
+    margin: 5px 0;    
+    border: none;     
+    border-radius: 0; 
+    font-size: 1em;   
+    display: list-item; 
+    text-align: left;
+    margin-left: 20px;
+}
+
+#skills .skills-category {
+    margin-bottom: 20px;
+    /* text-align: left; /* This can be removed or kept, as children will specify their alignment */
+}
+#skills .skills-category h3 {
+    text-align: left; /* Align category titles to the left */
+    color: #80cfff; 
+    margin-bottom: 10px;
+    /* If you want the h3 to not take full width, you might need display: inline-block or a width */
+}
+#skills .skills-category p {
+    text-align: left; /* Keep the skill lists (paragraph content) centered */
+}
+
+
+/* Projects */
+.project {
+    background: #0f1a2e; /* Slightly darker than section background */
+    border: 1px solid #00d1ff33; /* Brighter border */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 209, 255, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 50px; /* Increased space between projects */
+}
+
+.project:hover {
+    transform: translateY(-5px) scale(1.01); /* More subtle scale */
+    box-shadow: 0 0 25px rgba(0, 209, 255, 0.2);
+}
+
+.project img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #00d1ff44; /* Themed border for image */
+    background-color: #0a192f; /* Dark placeholder background */
+}
+.project h3 {
+    margin-bottom: 15px; /* Space below project title */
+}
+
+#contact-form {
+    max-width: 600px; 
+    margin: 20px auto 0 auto; 
+    text-align: center; /* Ensures content within the form defaults to left-aligned */
+}
+
+#contact-form .form-group {
+    margin-bottom: 25px; /* More space between form groups */
+}
+#contact-form label {
+    display: block; 
+    margin-bottom: 8px;
+    color: #00d1ff; 
+    font-weight: 500;
+    font-size: 1.1em;
+    text-align: left; /* Explicitly aligns labels to the left */
+}
+
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark, slightly transparent background */
+    border: 1px solid #00d1ff55; /* Themed border */
+    border-radius: 5px;
+    color: #e0e0e0; /* Light text color */
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    outline: none;
+    border-color: #00d1ff; /* Brighter border on focus */
+    box-shadow: 0 0 10px #00d1ff66; /* Glow effect on focus */
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker on focus */
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Contact Details Section */
+#contact-details h2 {
+    margin-top: 40px; /* Space above contact details if form is long */
+}
+#contact-details p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+#contact-details p strong {
+    color: #00d1ff;
+}
+
+
+/* Footer */
+footer {
+    background: rgba(10, 25, 47, 0.85); /* Consistent with header */
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: auto; /* Ensures footer is at the bottom */
+    font-size: 0.9em;
+    border-top: 2px solid #00d1ff66; /* Slightly more prominent top border */
+}
+
+footer a {
+    color: #00d1ff;
+}
+footer a:hover {
+    color: #fff;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    header .logo h1 {
+        font-size: 1.8em; /* Adjusted for mobile */
+    }
+    header nav ul {
+        margin-top: 15px;
+        flex-direction: column; /* Stack nav items on mobile */
+    }
+    header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    h1 { font-size: 2.2em; } /* Adjusted for mobile */
+    h2 { font-size: 1.8em; } /* Adjusted for mobile */
+    section#hero h2 { font-size: 2.5em; } /* Adjusted for mobile */
+    section#hero p { font-size: 1.1em; } /* Adjusted for mobile */
+    
+    .cta-buttons .btn {
+        display: block;
+        margin: 10px auto;
+        width: 90%;
+        max-width: 280px;
+        
+    }
+    #skills-overview .skills-list-overview {
+        padding-left: 20px; 
+        max-width: 100%;
+    }
+}
+
+ body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('https://i.gifer.com/NIbp.gif') repeat;
+    opacity: 0.07;
+    z-index: 0;
+    pointer-events: none;
+ } 

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Gopal Dutta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Gopal Dutta</h1>
+                <p class="tagline">Aspiring Data Scientist | Data Analyst | Python Developer | Machine Learning Enthusiast</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about_me.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Remove Analog Clock HTML -->
+            <!-- <div class="analog-clock"> ... </div> -->
+            
+            <!-- Add Digital Clock and Date HTML -->
+            <div class="digital-datetime">
+                <span id="digital-time"></span>
+                <span id="digital-date"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="projects">
+            <h2>My Projects</h2>
+            <article class="project" data-aos="fade-up">
+                <h3>Product Recommendation System</h3>
+                <img src="assets/images/project_placeholder.png" alt="Product Recommendation System">
+                <p><strong>Description:</strong> Developed a model to recommend products based on user search queries and behavior.</p>
+                <p><strong>Tech Stack:</strong> Python, Scikit-Learn, Pandas, BeautifulSoup.</p>
+                <p><strong>Outcome/Impact:</strong> Increased recommendation efficiency and relevance based on keywords, potentially improving user engagement and sales.</p>
+                <br><a href="https://github.com/Gopal-dutta/Product_Recommendations" target="_blank" class="btn-secondary btn-wide"><strong>View on GitHub</strong></a>
+            </article>
+
+            <article class="project" data-aos="fade-up" data-aos-delay="100">
+                <h3>Facial Detection System</h3>
+                <img src="assets/images/project_placeholder.png" alt="Facial Detection System">
+                <p><strong>Description:</strong> Created a real-time face detection system capable of identifying faces in video.</p>
+                <p><strong>Tech Stack:</strong> Python, TensorFlow, OpenCV, Deep Learning (CNNs).</p>
+                <p><strong>Outcome/Impact:</strong> Achieved efficient and accurate face detection, suitable for applications in security or user interaction.</p>
+                <br><a href="https://github.com/Gopal-dutta/Facial-recognition" target="_blank" class="btn-secondary btn-wide"><strong>View on GitHub</strong></a>
+            </article>
+
+            <article class="project" data-aos="fade-up" data-aos-delay="150">
+                <h3>Solar Panel Efficiency Prediction Model</h3>
+                <img src="assets/images/project_placeholder.png" alt="Solar Panel Efficiency Prediction">
+                <p><strong>Description:</strong> Designed a machine learning pipeline to predict the efficiency of solar panels based on sensor and operational data.</p>
+                <p><strong>Tech Stack:</strong> Python (Pandas, NumPy), Scikit-learn, Machine Learning, Matplotlib.</p>
+                <p><strong>Outcome/Impact:</strong> Helps optimize solar panel performance, anticipate maintenance needs, and improve energy yield by providing accurate efficiency predictions, enabling operators to maximize output and plan maintenance effectively.</p>
+                <br><a href="https://github.com/Gopal-dutta/Solar_eff_model" target="_blank" class="btn-secondary btn-wide"><strong>View on GitHub</strong></a>
+            </article>
+            <p style="text-align: center; margin-top: 30px;"><strong>Will add more amazing Projects in the future!</strong></p>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p><strong>&copy; 2025 Gopal Dutta. All rights reserved.</strong></p>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 300,
+            offset: 80,
+            once: true
+        });
+    </script>
+</body>
+</html>
