@@ -52,3 +52,61 @@ if (document.getElementById('digital-time') && document.getElementById('digital-
     setInterval(updateDigitalDateTime, 1000); // Update every second
     updateDigitalDateTime(); // Initial call to display immediately without waiting for 1 second
 }
+document.addEventListener('DOMContentLoaded', () => {
+    // ...existing code for header and clock...
+
+    // Initialize AOS
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 300, // Default duration for AOS animations
+            offset: 80,    // Offset (in px) from the original trigger point
+            once: true     // Whether animation should happen only once - while scrolling down
+        });
+    }
+
+    // PDF Modal Functionality
+    const modal = document.getElementById('pdf-modal');
+    const pdfViewer = document.getElementById('pdf-viewer');
+    const closeButton = document.querySelector('.modal .close-button');
+    const certificateLinks = document.querySelectorAll('.certificate-preview-link');
+
+    if (modal && pdfViewer && closeButton) { // Check if modal elements exist on the page
+        certificateLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default anchor behavior
+                const pdfSrc = link.getAttribute('data-pdf-src');
+                if (pdfSrc) {
+                    // Attempt to hide toolbar. Browser support varies.
+                    // For some viewers, this might help discourage direct download buttons.
+                    pdfViewer.src = pdfSrc + '#toolbar=0&navpanes=0&scrollbar=0'; 
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                }
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+            pdfViewer.src = ''; // Clear src to stop PDF loading
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        });
+
+        // Close modal if user clicks outside of the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                pdfViewer.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                pdfViewer.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});

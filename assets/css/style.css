@@ -103,8 +103,8 @@ header nav {
 
 .digital-datetime {
     position: absolute;
-    top: 50%;
-    right: -100px; /* Decreased from 15px to move it further right */
+    top: 40%;
+    right: -150px; /* Decreased from 15px to move it further right */
     transform: translateY(-50%);
     color: #cce0ff; 
     font-size: 0.9em; 
@@ -128,6 +128,7 @@ header nav {
 
 header .logo h1 {
     color: #00d1ff;
+    margin: 0;
     text-shadow: 0 0 5px #00d1ff88;
 }
 header .logo p.tagline { /* Targeting tagline specifically if needed */
@@ -135,6 +136,7 @@ header .logo p.tagline { /* Targeting tagline specifically if needed */
     font-size: 1em;
     color: #9fceff;
     font-weight: normal;
+    text-align: left;
 }
 
 
@@ -144,13 +146,18 @@ header nav ul {
 }
 
 header nav ul li {
-    margin-left: 25px;
+    margin-left: 10px;
 }
 
 header nav a {
     color: #e0e0e0;
-    text-transform: uppercase;
-    font-weight: normal;
+    text-decoration: none;
+    padding: 50px 10px; /* Existing padding */
+    display: block; 
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    border-radius: 5px;
+    white-space: nowrap; /* Add this line */
 }
 
 header nav a:hover,
@@ -344,6 +351,135 @@ section article h3 {
 }
 .project h3 {
     margin-bottom: 15px; /* Space below project title */
+}
+
+.credential-item {
+    background: #0f1a2e; /* Slightly darker than section background */
+    border: 1px solid #00d1ff33; /* Brighter border */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 209, 255, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 40px; /* Space between credential items */
+    text-align: left; /* Ensure text inside is left-aligned */
+}
+
+.credential-item:hover {
+    transform: translateY(-5px) scale(1.01); /* More subtle scale */
+    box-shadow: 0 0 25px rgba(0, 209, 255, 0.2);
+}
+
+.credential-item img {
+    width: 100%;
+    max-width: 600px; /* Limit max width of certificate image for better layout */
+    display: block; /* Remove extra space below image */
+    margin: 15px auto 20px auto; /* Center image and add margin */
+    border-radius: 8px;
+    border: 1px solid #00d1ff44; /* Themed border for image */
+    background-color: #0a192f; /* Dark placeholder background if image fails to load */
+    object-fit: contain; /* Ensure the whole certificate is visible */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.credential-item h4 { /* UPDATED from h3 to h4 */
+    margin-bottom: 10px; /* Space below credential title */
+    color: #00d1ff;
+    text-align: center; /* Center the certificate title */
+    font-size: 1.5em; /* Adjust size if needed for h4 */
+    font-weight: bold; /* Ensure it's bold like other headings */
+}
+
+.credential-item p {
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+.credential-item p strong {
+    color: #80cfff;
+}
+
+.certificate-category { /* NEW STYLES */
+    margin-bottom: 50px; /* Space between categories */
+    padding-top: 20px; /* Add some padding at the top of the category */
+}
+
+.certificate-category h3 { /* NEW STYLES for category titles */
+    font-size: 2.2em; /* Style for the category titles */
+    color: #80cfff; /* A slightly different color for category titles */
+    text-align: left;
+    border-bottom: 1px solid #00d1ff55;
+    padding-bottom: 10px;
+    margin-bottom: 30px; /* Space below category title */
+    margin-top: 0; /* Reset top margin if default h3 has it */
+}
+
+.credential-item p em { /* Style for the description */
+    color: #b0b0b0;
+    font-size: 0.9em;
+}
+
+/* PDF Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.85); /* Darker semi-transparent background */
+    backdrop-filter: blur(5px); /* Optional: blur background */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+}
+
+.modal-content {
+    background-color: #07101f; /* Very dark background for the modal content */
+    margin: 5vh auto; /* Vertically centered with some top/bottom margin */
+    padding: 20px;
+    border: 1px solid #00d1ff55; /* Subtle border */
+    border-radius: 10px;
+    width: 90%; 
+    max-width: 900px; /* Max width of modal */
+    height: 85vh; /* Modal height */
+    position: relative;
+    box-shadow: 0 0 30px rgba(0, 209, 255, 0.25);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content iframe {
+    width: 100%;
+    height: 100%; /* Fill the modal content area */
+    border: none;
+    flex-grow: 1; /* Allow iframe to take available space */
+}
+
+.close-button {
+    color: #aaa;
+    align-self: flex-end; /* Position close button to the right */
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    padding: 0 5px;
+    margin-bottom: 10px; /* Space between button and iframe */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #00d1ff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.certificate-preview-link img:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(0, 209, 255, 0.3);
+}
+.certificate-preview-link {
+    display: block; /* Ensure link takes up block space for easier clicking */
+    text-align: center; /* Center the image if it's smaller than its container */
 }
 
 #contact-form {
