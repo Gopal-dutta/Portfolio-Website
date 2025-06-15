@@ -79,7 +79,7 @@ a:hover {
 header {
     background: rgba(10, 25, 47, 0.85); /* Dark blueish, slightly more opaque */
     color: #fff;
-    padding: 15px 0;
+    padding: 15px 10px;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -98,7 +98,8 @@ header .container {
     position: relative; /* Needed for absolute positioning */
 }
 header nav {
-    padding-right: 10px; /* Adjust this value as needed */
+    padding-right: -20px;
+    padding-left: 50px; /* Adjust this value as needed */
 }
 
 .digital-datetime {
