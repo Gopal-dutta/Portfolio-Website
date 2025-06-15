@@ -104,7 +104,7 @@ header nav {
 
 .digital-datetime {
     position: absolute;
-    top: 40%;
+    top: 45%;
     right: -150px; /* Decreased from 15px to move it further right */
     transform: translateY(-50%);
     color: #cce0ff; 
@@ -288,6 +288,79 @@ section article h3 {
 #about-overview p{
     text-align: center; /* Centering the paragraph in the overview */
 }
+
+#experience h3,
+#certifications h3 {
+    font-size: 3em; /* Adjusted for better readability */
+    font-weight: bold;
+    margin-top: 20px; /* Space above the section title */
+    margin-bottom: 25px; /* Space below the section title */
+    padding-bottom: 10px; /* Space below the title */
+    border-bottom: 2px solid #00d1ff; /* Subtle border for emphasis */
+}
+
+
+.job h4 { /* Style for job titles to accommodate the button */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow button to wrap on small screens if needed */
+    font-size: 2em; /* Adjusted for better readability */
+    margin-top: 50px;
+    /* padding-bottom: 10px; */
+}
+
+.credential-link-btn {
+    font-size: 0.5em;
+    padding: 3px 8px;
+    background-color: #00d1ff;
+    color: #0a192f;
+    border-radius: 15px; /* More rounded for a pill shape */
+    text-decoration: none;
+    margin-left: 10px; /* Space from the job title */
+    font-weight: normal;
+    white-space: nowrap;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    display: inline-block; /* To allow padding and margin */
+    vertical-align: middle; /* Align with text */
+}
+
+.credential-link-btn:hover {
+    background-color: #80cfff;
+    color: #07101f;
+    transform: scale(1.05);
+}
+
+#certifications ul {
+    list-style: none; /* Assuming you might want to remove default bullets */
+    padding-left: 0; /* Remove default padding if list-style is none */
+}
+
+#certifications ul li {
+    margin-bottom: 10px; /* Space between certification items */
+    display: flex; /* For aligning text and icon */
+    justify-content: space-between; /* Pushes icon to the right */
+    align-items: center; /* Vertically aligns text and icon */
+}
+
+.credential-icon-link {
+    margin-left: 10px; /* Space from the certification text */
+    color: #00d1ff; /* Icon color */
+    font-size: 1.3em; /* Adjust icon size */
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s;
+    padding: 10px; /* Added padding for better click area */
+}
+
+.credential-icon-link:hover {
+    color: #80cfff; /* Lighter color on hover */
+    transform: scale(1.1);
+}
+
+.credential-icon-link i {
+    display: block; /* Helps with consistent sizing and alignment */
+}
+
 #skills-overview p {
     text-align: center;
 }
